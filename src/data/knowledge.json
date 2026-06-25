@@ -1,0 +1,38 @@
+[
+  {
+    "id": "err-429",
+    "keywords": ["429", "rate limit", "too many requests", "rate_limit_exceeded", "throttle"],
+    "title": "HTTP 429: Rate Limit Exceeded",
+    "content": "A 429 means you have exceeded your account's requests-per-minute (RPM) or tokens-per-minute (TPM) limit for the requested model. Fixes: (1) Implement exponential backoff with jitter on retries. (2) Batch requests or lower concurrency. (3) Check the Retry-After response header and wait that many seconds. (4) Upgrade your rate-limit tier if you consistently need higher throughput. The limit is per-model, so spreading load across models can help."
+  },
+  {
+    "id": "err-401",
+    "keywords": ["401", "unauthorized", "invalid api key", "authentication", "auth"],
+    "title": "HTTP 401: Unauthorized",
+    "content": "A 401 means your API key is missing, malformed, or revoked. Fixes: (1) Confirm the Authorization header is exactly 'Bearer <KEY>'. (2) Check the key has not been rotated or deleted in the dashboard. (3) Ensure you are hitting the correct base URL/region for the key. (4) Verify there is no trailing whitespace or newline in the stored key."
+  },
+  {
+    "id": "err-context-length",
+    "keywords": ["context length", "context_length_exceeded", "max tokens", "context window", "too long"],
+    "title": "Context Length Exceeded",
+    "content": "This error occurs when input tokens + requested max_output_tokens exceeds the model's context window. Note: max_tokens controls OUTPUT length only; it is NOT the context window. Fixes: (1) Truncate or summarize conversation history. (2) Reduce max_output_tokens. (3) Switch to a model with a larger context window. (4) Use retrieval (RAG) instead of stuffing all documents into the prompt."
+  },
+  {
+    "id": "concept-function-calling",
+    "keywords": ["function calling", "tool calling", "tool_calls", "function not firing", "tools"],
+    "title": "Function/Tool Calling Not Firing",
+    "content": "If the model returns plain text instead of a tool call: (1) Ensure the tool's description clearly states WHEN to use it. (2) Confirm the JSON schema 'required' fields are correct. (3) The model decides whether to call a tool; you can force it with tool_choice. (4) Always parse the arguments string as JSON; the model returns arguments as a stringified JSON object, not a native object."
+  },
+  {
+    "id": "concept-mcp",
+    "keywords": ["mcp", "model context protocol", "harness", "mcp server", "integration"],
+    "title": "MCP (Model Context Protocol) Integration",
+    "content": "MCP is a protocol for connecting models to external tools/data via an MCP server. Common issues: (1) The MCP server must be running and reachable before the client connects. (2) Tool names exposed by the server must be unique. (3) Authentication (OAuth) is triggered on first use; ensure tokens are not expired. (4) List tools first ('tool list') before calling them; never guess tool parameters. (5) Each tool call should be a single top-level invocation, not chained."
+  },
+  {
+    "id": "concept-models",
+    "keywords": ["model difference", "which model", "nano", "mini", "flagship", "choose model"],
+    "title": "Choosing a Model",
+    "content": "Smaller models (nano/mini) are faster and cheaper, ideal for lightweight tasks, classification, and routing. Flagship models are better for complex reasoning and coding but cost more and are slower. Recommendation: start with a mini-tier model as the default; escalate to flagship only for the hardest reasoning steps. Match the model to the difficulty of the task, not the other way around."
+  }
+]

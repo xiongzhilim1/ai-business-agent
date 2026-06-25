@@ -1,0 +1,35 @@
+[
+  {
+    "id": "plan-nano",
+    "name": "Nano",
+    "model": "nano",
+    "pricePer1MInput": 0.05,
+    "pricePer1MOutput": 0.40,
+    "bestFor": ["classification", "routing", "extraction", "high-volume lightweight tasks"],
+    "contextWindow": 400000,
+    "monthlyQuotaRpm": 200,
+    "available": true
+  },
+  {
+    "id": "plan-mini",
+    "name": "Mini",
+    "model": "mini",
+    "pricePer1MInput": 0.25,
+    "pricePer1MOutput": 2.00,
+    "bestFor": ["chatbots", "summarization", "general support agents", "most production apps"],
+    "contextWindow": 400000,
+    "monthlyQuotaRpm": 1000,
+    "available": true
+  },
+  {
+    "id": "plan-flagship",
+    "name": "Flagship",
+    "model": "flagship",
+    "pricePer1MInput": 1.25,
+    "pricePer1MOutput": 10.00,
+    "bestFor": ["complex reasoning", "coding agents", "multi-step planning", "hardest tasks"],
+    "contextWindow": 400000,
+    "monthlyQuotaRpm": 500,
+    "available": true
+  }
+]
